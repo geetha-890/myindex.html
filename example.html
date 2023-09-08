@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hotel Registration Form</h1>
+    <form>
+        <label for="Customer Name">Customer Name</label>
+        <input type="text" id="Customer Name" name="Customer Name"><br>
+        <label for="Check-in date">Check-in date</label>
+        <input type="date" id="Check-in date" name="Check-in date"><br>
+                <label for="No.of persons">No.of persons</label>
+        <input type="number" id="No.of persons" name="No.of persons"><br>
+        <label for="Room type">Room type</label>
+        <select id="Room type" name="Room type">
+            <option value="suit room -4000">suit room -4000</option>
+            <option value="delux room -2500">delux room -2500</option>
+        </select><br>
+        <label for="Amenities">Amenities</label>
+        <select id="Amenities" name="Amenities">
+            <option value=" AC-1000">AC-1000</option>
+            <option value="Locker-300">Locker-300</option>
+                    </select><br>
+                    <label for="Room rate">Room rate</label>
+                    <input type="number" id="rate" name="rate"><br>
+                    <label for="No.of days">No.of days</label>
+        <input type="number" id="days" name="days"><br>
+                    <label for="totalroomcost">totalroomcost</label>
+                    <input type="number" id="totalroomcost" name="totalroomcost" readonly><br>
+                    <input type="button" value="Calculate totalroomcost" onclick="calculatetotalroom()"><br>
+                    <label for="Amenities Cost">Amenities Cost</label>
+                    <input type="number" id="Cost" name="Cost"><br>
+                                        <label for="totalamenitiescost">totalamenitiescost</label>
+                    <input type="number" id="totalamenitiescost" name="totalamenitiescost" readonly><br>
+                    <input type="button" value="Calculate totalamenitiescost" onclick="calculatetotalamenities()"><br>
+                    <label for="totalamount">totalamount</label>
+                    <input type="number" id="totalamount" name="totalamount" readonly> <br>
+                    <input type="button" value="Calculate totalamount" onclick="calculatetotal()"><br>
+                    <label for="totalr">totalr</label>
+                    <input type="number" id="room" name="room"><br>
+                    <label for="totalam">totalam</label> 
+                    <input type="number" id="amn" name="amn"><br>   
+                    <label for="advance">advance</label>   
+                    <input type="number" id="adv" name="adv"><br>
+                    <label for="balanceamount">balanceamount</label>
+                    <input type="number" id="balanceamount" name="balanceamount" readonly>
+                                        <input type="button" value="Calculate balanceamount" onclick="calculatebalance()"><br>
+                                        <label for="Totalcost">Totalcost</label>
+                                        <input type="number" id="Totc" name="Totc">
+                                        
+
+    </form>
+    <script>
+        function calculatetotalroom() {
+            var rate = parseFloat(document.getElementById("rate").value);
+            var days = parseFloat(document.getElementById("days").value);
+
+            if (!isNaN(rate) && !isNaN(days)) {
+                var  totalroomcost= rate * days;
+                document.getElementById("totalroomcost").value = totalroomcost.toFixed(2);
+            } else {
+                alert("Please enter valid numbers for Total and Advance amounts.");
+            }
+        }
+        function calculatetotalamenities() {
+            var Cost = parseFloat(document.getElementById("Cost").value);
+            var days = parseFloat(document.getElementById("days").value);
+
+            if (!isNaN(Cost) && !isNaN(days)) {
+                var  totalamenitiescost= Cost * days;
+                document.getElementById("totalamenitiescost").value = totalamenitiescost.toFixed(2);
+            } else {
+                alert("Please enter valid numbers for Total and Advance amounts.");
+            }
+        }
+        function calculatetotal() {
+            var room = parseFloat(document.getElementById("room").value);
+            var amn= parseFloat(document.getElementById("amn").value);
+
+            if (!isNaN(room) && !isNaN(amn)) {
+                var  totalamount= room + amn;
+                document.getElementById("totalamount").value = totalamount.toFixed(2);
+            } else {
+                alert("Please enter valid numbers for Total and Advance amounts.");
+            }
+        }
+        function calculatebalance() {
+            var  Totc= parseFloat(document.getElementById("Totc").value);
+            var adv= parseFloat(document.getElementById("adv").value);
+
+            if (!isNaN(Totc) && !isNaN(adv)) {
+                var  balanceamount= Totc - adv;
+                document.getElementById("balanceamount").value =   balanceamount.toFixed(2);
+            } else {
+                alert("Please enter valid numbers for Total and Advance amounts.");
+            }
+        }
+            </script>
+</body>
+</html>
